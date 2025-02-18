@@ -7,6 +7,6 @@ export default class Main extends Component {
             <View>
                 <Text>Aqui é minha página inicial</Text>
             </View>
-        );w
+        );
     }
 }
