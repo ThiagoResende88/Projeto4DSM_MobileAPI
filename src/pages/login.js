@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = () => {
     //aqui vai ficar nossa lógica de login
     // console.log(`E-mail: ${email}, Senha: ${password}`)
-    if (email === "aaa" && password === "123") {
+    if (email === "" && password === "") {
       navigation.navigate("Main");
     } else {
       Alert.alert("E-mail ou senha inválidos!");
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#7159c1",
     borderRadius: 10,
     padding: 10,
     width: "80%",

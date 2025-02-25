@@ -16,7 +16,7 @@ export default function Routes() {
           title: "LOGIN",
           headerTitleAlign: "center",
           headerStyle: {
-            backgroundColor: "#3498db",
+            backgroundColor: "#7159c1",
           },
           headerTitleStyle: {
             color: "#fff",
@@ -32,7 +32,7 @@ export default function Routes() {
           title: "GitHub VIEWER",
           headerTitleAlign: "center",
           headerStyle: {
-            backgroundColor: "#3498db",
+            backgroundColor: "#7159c1",
           },
           headerTitleStyle: {
             color: "#fff",
@@ -44,7 +44,7 @@ export default function Routes() {
           title: "Perfil do Usuário",
           headerTitleAlign: "center",
           headerStyle: {
-            backgroundColor: "#3498db",
+            backgroundColor: "#7159c1",
           },
           headerTitleStyle: {
             color: "#fff",
