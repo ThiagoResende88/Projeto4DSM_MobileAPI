@@ -89,7 +89,35 @@ export default class Main extends Component {
             )}
           </SubmitButton>
         </Form>
-
+        <List
+          showsVerticalScrollIndicator={false}
+          data={users}
+          keyExtractor={(user) => user.login}
+          renderItem={({ item }) => (
+            <User>
+              <Avatar source={{ uri: item.avatar }} />
+              <Name>{item.name}</Name>
+              <Bio>{item.bio}</Bio>
+              <ProfileButton
+                onPress={() => {
+                  this.props.navigation.navigate("user", { user: item });
+                }}
+              >
+                <ProfileButtonText>Ver perfil</ProfileButtonText>
+              </ProfileButton>
+              <ProfileButton
+              onPress={() => {
+                this.setState({
+                  users: this.state.users.filter((user) => user.login !== item.login)
+                })
+              }}
+              style={{backgroundColor: "red"}}
+              >
+                <ProfileButtonText>Remover</ProfileButtonText>
+              </ProfileButton>
+            </User>
+          )}
+        />
       </Container>
     );
   }
