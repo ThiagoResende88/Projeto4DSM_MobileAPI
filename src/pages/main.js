@@ -16,11 +16,10 @@ import {
   ProfileButton,
   ProfileButtonText,
 } from "../styles";
-
 export default class Main extends Component {
   state = {
     newUser: "",
-    user: [],
+    users: [],
     loading: false,
   };
 
@@ -32,7 +31,7 @@ export default class Main extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    const { users } = this.setState;
+    const { users } = this.state;
     if (prevState.users !== users) {
       AsyncStorage.setItem("users", JSON.stringify(users));
     }
@@ -42,23 +41,20 @@ export default class Main extends Component {
     try {
       const { users, newUser } = this.state;
       this.setState({ loading: true });
-
       const response = await api.get(`/users/${newUser}`);
       if (users.find((user) => user.login === response.data.login)) {
         alert("Usuário já adicionado!");
         this.setState({ loading: false });
         return;
       }
-      console.log(response)
       const data = {
         name: response.data.name,
         login: response.data.login,
         bio: response.data.bio,
         avatar: response.data.avatar_url,
       };
-
       console.log(data);
-      
+
       this.setState({
         users: [...users, data],
         newUser: "",
@@ -66,7 +62,7 @@ export default class Main extends Component {
       });
       Keyboard.dismiss();
     } catch (error) {
-      alert("Usuário não encontrado");
+      alert("Usuário não encontrado!");
       this.setState({ loading: false });
     }
   };
@@ -77,9 +73,9 @@ export default class Main extends Component {
       <Container>
         <Form>
           <Input
-            autoCorrect={false} //  Não corrige o texto
-            autoCapitalize="none" // Não deixa a primeira letra maiúscula
-            placeholder="Adicionar usuário" // Texto que aparece no input
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Adicionar usuário"
             value={newUser}
             onChangeText={(text) => this.setState({ newUser: text })}
             returnKeyType="send"
@@ -89,10 +85,11 @@ export default class Main extends Component {
             {loading ? (
               <ActivityIndicator color="#fff" />
             ) : (
-              <Icon name="add" size={22} color="#FFF" />
+              <Icon name="add" size={20} color="#fff" />
             )}
           </SubmitButton>
         </Form>
+
       </Container>
     );
   }
