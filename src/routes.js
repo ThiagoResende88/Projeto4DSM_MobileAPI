@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Main from "./pages/main";
 import Login from "./pages/login";
-// import User from "./pages/user";
+import User from "./pages/users";
 
 const Stack = createStackNavigator();
 
@@ -40,7 +40,7 @@ export default function Routes() {
           },
         }}
       />
-      {/* <Stack.Screen name="User" component={User} options={{
+      <Stack.Screen name="User" component={User} options={{
           title: "Perfil do Usuário",
           headerTitleAlign: "center",
           headerStyle: {
@@ -50,7 +50,7 @@ export default function Routes() {
             color: "#fff",
             fontWeight: "bold",
           },
-        }}/>   */}
+        }}/>  
     </Stack.Navigator>
   );
 }
