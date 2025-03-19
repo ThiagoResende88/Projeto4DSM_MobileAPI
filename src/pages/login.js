@@ -24,6 +24,10 @@ const Login = () => {
     }
   };
 
+  const handleCadastro = () => {
+    navigation.navigate("Cadastro")
+  }
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -41,6 +45,10 @@ const Login = () => {
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Entrar</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+        <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
   );
