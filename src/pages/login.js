@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -7,25 +9,29 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    //aqui vai ficar nossa lógica de login
-    // console.log(`E-mail: ${email}, Senha: ${password}`)
-    if (email === "" && password === "") {
-      navigation.navigate("Main");
-    } else {
-      Alert.alert("E-mail ou senha inválidos!");
+  const handleLogin = async () => {
+    const user = await AsyncStorage.getItem("user")
+    if(!user){
+      alert("Nenhum usuário cadastrado!")
+      return
+    }
+    const userJson = JSON.parse(user)
+    if(userJson.email === email && userJson.password === password){
+      navigation.navigate("Main")
+    }else{
+      alert("E-mail ou senha inválidos!")
     }
   };
 
   const handleCadastro = () => {
-    navigation.navigate("Cadastro")
+    navigation.navigate("CadastrarUsuario")
   }
 
   return (
@@ -75,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     alignItems: "center",
+    marginVertical: 5,
   },
   buttonText: {
     color: "#fff",

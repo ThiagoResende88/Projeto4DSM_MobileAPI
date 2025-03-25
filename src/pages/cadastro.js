@@ -1,50 +1,82 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
-  StyleSheet,
-  Text,
   View,
   TextInput,
   TouchableOpacity,
+  Text,
+  StyleSheet,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const CadastrarUsuario = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default class CadastrarUsuario extends Component {
+  state = {
+    email: "",
+    password: "",
+  };
 
-  const navigation = useNavigation();
+  handleCadastro = async () => {
+    const { email, password } = this.state;
+    if (!email || !password) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+    const user = {
+      email,
+      password,
+    };
+    await AsyncStorage.setItem("user", JSON.stringify(user));
+    alert("Usuário cadastrado com sucesso!");
+    this.props.navigation.navigate("Login");
+  };
 
-  return (
-  <View style={styles.container}>
-    <TextInput
-        style={styles.input}
-        placeholder="E-mail"
-        value={email}
-        onChangeText={setEmail}
-    />
-    <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={setPassword}
-    />
-    <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
-    </TouchableOpacity>
-  </View>
-  )
-};
+  render() {
+    return (
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          placeholder="E-mail"
+          value={this.state.email}
+          onChangeText={(email) => this.setState({ email })}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry={true}
+          value={this.state.password}
+          onChangeText={(password) => this.setState({ password })}
+        />
+        <TouchableOpacity style={styles.button} onPress={this.handleCadastro}>
+          <Text style={styles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#292F33",
+    backgroundColor: "#fff",
   },
-  input: {},
-  button: {},
-  buttonText: {},
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    padding: 10,
+    marginVertical: 10,
+    width: "80%",
+  },
+  button: {
+    backgroundColor: "#7159c1",
+    borderRadius: 10,
+    padding: 10,
+    width: "80%",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
 });
