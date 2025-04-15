@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.github.com",
+  baseURL: "https://db.ygoprodeck.com/api/v7",
 });
 
-export default api; 
-
+export default api;

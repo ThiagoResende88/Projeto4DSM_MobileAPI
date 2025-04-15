@@ -4,7 +4,7 @@ import { RectButton } from "react-native-gesture-handler";
 //Estilos para a página Main
 export const Container = styled.View`
   flex: 1;
-  padding: 30px;
+  background-color: #f5f5f5;
 `;
 
 export const Form = styled.View`
@@ -13,6 +13,7 @@ export const Form = styled.View`
   border-bottom-width: 1px;
   border-color: #eee;
 `;
+
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: "#999",
 })`
@@ -117,7 +118,7 @@ export const BioPerfil = styled.Text`
 `;
 
 export const Stars = styled.FlatList.attrs({
-  showsVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: true,
 })`
   margin-top: 20px;
 `;
@@ -156,3 +157,4 @@ export const Author = styled.Text`
   color: #666;
   margin-top: 2px;
 `;
+

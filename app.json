@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Projeto4DSM",
-    "slug": "Projeto4DSM",
+    "name": "YuGiOh",
+    "slug": "YuGiOh",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,6 +23,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "fonts": [
+      {
+        "name": "YuGiOh",
+        "src": "./assets/fonts/Yu-Gi-Oh-Matrix.ttf"
+      }
+    ]
   }
 }
