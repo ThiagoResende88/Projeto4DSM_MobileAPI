@@ -1,14 +1,13 @@
-# GitViewer Mobile App
+# Yu Gi OH! Cards Mobile App
 
 ## 📱 Sobre o Projeto
-GitViewer é um aplicativo mobile desenvolvido em React Native como projeto acadêmico para a disciplina de Desenvolvimento de Dispositivos Móveis do curso de Desenvolvimento de Software Multiplataforma (DSM) na Fatec Franca.
+Yu Gi OH! Cards é um aplicativo mobile desenvolvido em React Native como projeto acadêmico para a disciplina de Desenvolvimento de Dispositivos Móveis do curso de Desenvolvimento de Software Multiplataforma (DSM) na Fatec Franca. 
 
 O aplicativo permite aos usuários:
 - Fazer login e cadastro no sistema
-- Buscar usuários do GitHub
-- Visualizar informações de perfil dos usuários
-- Ver repositórios favoritos (starred) de cada usuário
-- Adicionar e remover usuários da lista
+- Buscar sua carta preferida no banco de dados
+- Visualizar informações sobre as cartas
+- Adicionar e remover cartas a sua coleção
 
 ## 🔨 Tecnologias Utilizadas
 
