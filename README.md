@@ -98,7 +98,7 @@ Projeto4DSM_MobileAPI/
 
 ## 📱 Capturas de Tela
 
-[Aqui você pode adicionar screenshots do aplicativo em funcionamento]
+![WhatsApp Image 2025-04-15 at 16 45 37](https://github.com/user-attachments/assets/8319129a-d566-4af2-80f0-4b21f363b1e6)
 
 ## 📝 Autor
 
